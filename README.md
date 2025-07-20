@@ -17,7 +17,8 @@ This portfolio is fully built using **HTML + CSS** and includes:
 
 ---
 
-
+If deployed:  
+🔗 [View Portfolio Live](https://your-live-link.com)  
 
 ## 📂 Project Structure
 portfolio/
