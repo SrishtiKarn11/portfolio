@@ -18,7 +18,7 @@ This portfolio is fully built using **HTML + CSS** and includes:
 ---
 
 If deployed:  
-🔗 [View Portfolio Live](https://your-live-link.com)  
+🔗 [View Portfolio Live]([https://your-live-link.com](https://srishtikarn11.github.io/portfolio/))  
 
 ## 📂 Project Structure
 portfolio/
