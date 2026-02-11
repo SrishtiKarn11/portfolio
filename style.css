@@ -1,45 +1,45 @@
 :root {
-  --bg-color: #f5f9ff;
-  --bg-gradient: linear-gradient(135deg, #f5f9ff, #eaf2ff);
+  --bg-color: #0b1120;
+  --bg-gradient: linear-gradient(135deg, #0b1120, #111827);
+  --header-color: rgba(17, 24, 39, 0.8);
+  --card-bg: rgba(255, 255, 255, 0.04);
 
-  --header-color: rgba(255, 255, 255, 0.85);
-  --card-bg: #ffffff;
+  --text-color: #f1f5f9;
+  --secondary-text: #94a3b8;
 
-  --text-color: #1e293b;
-  --secondary-text: #475569;
+  --highlight-color: #38bdf8; /* soft professional blue */
+  --highlight-soft: rgba(56, 189, 248, 0.15);
 
-  --highlight-color: #2563eb;
-  --highlight-soft: rgba(37, 99, 235, 0.15);
-
-  --border-color: #e2e8f0;
+  --border-color: rgba(255, 255, 255, 0.08);
 
   --font-main: 'Segoe UI', sans-serif;
 }
 
-/* RESET */
+/* GLOBAL RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 body {
   background: var(--bg-gradient);
   color: var(--text-color);
   font-family: var(--font-main);
-  line-height: 1.6;
+  line-height: 1.7;
+  letter-spacing: 0.3px;
 }
 
 /* HEADER */
 header {
   background: var(--header-color);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(14px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 20px 60px;
   position: fixed;
   width: 100%;
   top: 0;
@@ -48,15 +48,16 @@ header {
 }
 
 .logo {
-  font-size: 18px;
+  font-size: 20px;
   color: var(--highlight-color);
   font-weight: 600;
+  letter-spacing: 1px;
 }
 
 /* NAVIGATION */
 nav ul {
   display: flex;
-  gap: 20px;
+  gap: 28px;
   list-style: none;
 }
 
@@ -73,14 +74,29 @@ nav a span {
   margin-right: 4px;
 }
 
+/* Underline animation */
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: var(--highlight-color);
+}
+
 nav a:hover {
   color: var(--highlight-color);
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 /* Resume Button */
 nav .btn {
   border: 1px solid var(--highlight-color);
-  padding: 6px 14px;
+  padding: 7px 16px;
   border-radius: 6px;
   color: var(--highlight-color);
   font-size: 13px;
@@ -88,131 +104,151 @@ nav .btn {
 
 nav .btn:hover {
   background: var(--highlight-color);
-  color: white;
+  color: #0b1120;
+  box-shadow: 0 0 20px var(--highlight-soft);
 }
 
 /* MAIN */
 main {
-  padding-top: 90px;
+  padding-top: 120px;
 }
 
 /* HERO */
 .hero {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 0 40px;
+  max-width: 950px;
+  margin: 100px auto;
+  padding: 0 60px;
 }
 
 .intro {
   color: var(--highlight-color);
-  font-size: 16px;
-  margin-bottom: 5px;
+  font-size: 18px;
+  margin-bottom: 8px;
 }
 
 .name {
-  font-size: 42px;
+  font-size: 52px;
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  color: var(--text-color);
 }
 
 .subtitle {
-  font-size: 18px;
+  font-size: 22px;
   color: var(--secondary-text);
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 
 .description {
-  max-width: 600px;
-  font-size: 15px;
+  max-width: 650px;
+  font-size: 16px;
   color: var(--secondary-text);
 }
 
 /* CTA BUTTON */
 .cta-btn {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 35px;
   border: 1px solid var(--highlight-color);
   color: var(--highlight-color);
-  padding: 8px 18px;
+  padding: 12px 28px;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 14px;
+  font-weight: 500;
 }
 
 .cta-btn:hover {
   background: var(--highlight-color);
-  color: white;
+  color: #0b1120;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px var(--highlight-soft);
 }
 
 /* SECTIONS */
 .section {
-  padding: 60px 40px;
+  padding: 90px 60px;
   max-width: 900px;
   margin: 0 auto;
 }
 
 .section h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
+  font-size: 30px;
+  margin-bottom: 25px;
   color: var(--highlight-color);
+  position: relative;
+  font-weight: 600;
+}
+
+.section h2::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: var(--highlight-color);
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  border-radius: 4px;
 }
 
 /* TEXT */
 .section p,
 .section ul {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--secondary-text);
 }
 
 /* LIST CARDS */
 .section ul {
   padding-left: 0;
-  margin-top: 10px;
+  margin-top: 20px;
   list-style: none;
 }
 
 .section ul li {
-  margin-bottom: 12px;
-  padding: 12px 14px;
-  border-radius: 8px;
+  margin-bottom: 18px;
+  padding: 16px 18px;
+  border-radius: 10px;
   background: var(--card-bg);
   border: 1px solid var(--border-color);
 }
 
 .section ul li:hover {
   border-color: var(--highlight-color);
-  box-shadow: 0 5px 15px var(--highlight-soft);
+  background: rgba(56, 189, 248, 0.06);
+  transform: translateY(-4px);
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 25px;
+  padding: 35px;
   color: #64748b;
   font-size: 13px;
-  margin-top: 40px;
+  margin-top: 60px;
   border-top: 1px solid var(--border-color);
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   header {
-    padding: 15px 20px;
+    padding: 18px 25px;
   }
 
   .hero {
-    padding: 0 20px;
+    padding: 0 25px;
   }
 
   .section {
-    padding: 50px 20px;
+    padding: 70px 25px;
   }
 
   .name {
-    font-size: 32px;
+    font-size: 40px;
   }
 
   .subtitle {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
+hey whats this reduce the spacing and make background colour light change the black colour i did not like it at all
